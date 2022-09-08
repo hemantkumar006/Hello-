@@ -19,14 +19,18 @@ const items = [
 ]
 
 const Products = () => {
-    return (
-        <div className={"product-list"}>
+    return  <div className={"product-list"}>
             <div className={"product-list--wrapper"}>
                 <ListItem data={items[0]}></ListItem>
 
                 <ListItem data={items[1]}></ListItem>
+                <ListItem data={items[1]}></ListItem>
+                <ListItem data={items[1]}></ListItem>
+                <ListItem data={items[1]}></ListItem>
+                <ListItem data={items[1]}></ListItem>
+                <ListItem data={items[1]}></ListItem>
             </div>
         </div>
-    )
+    
 }
 export default Products
