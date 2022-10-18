@@ -39,29 +39,63 @@ const [item,setItem]=useState({
     {
          //console.log(event.target.value)
          setTitle(event.target.value)
+
+         setItem({
+            ...item,
+            title:event.target.value
+         })
+
     }
     const handlediscountprice=(event)=>
     {
          //console.log(event.target.value)
          setdiscountprice(event.target.value)
+         setItem({
+            ...item,
+            discountPrice:event.target.value
+         })
     }
     const handleprice=(event)=>
     {
          //console.log(event.target.value)
          setprice(event.target.value)
+         setItem({
+            ...item,
+            price:event.target.value
+         })
     }
  
     const handlethumbnail=(event)=>
     {
          //console.log(event.target.value)
          setthumbnail(event.target.value)
+         setItem({
+            ...item,
+            thumbnail:event.target.value
+         })
+    }
+
+    const submitForm=(event)=>
+    {
+        event.preventDefault();
+        console.log({
+            'Price':price,
+            'Discountprice': discountPrice,
+            'Title':title
+        })
+        setItem({
+            title,
+            price,
+            discountPrice,
+            thumbnail
+        })
     }
 
     return ( 
     
             <div className={"product-wrapper"}>
                 <div className={"form"}>
-                    <form width='50' height>
+                    <form onSubmit={submitForm} width='50' height>
                         <h2>Item Card details</h2>
                         <div className={"input-field"}>
                             <label htmlFor="title">Title</label>
@@ -70,6 +104,7 @@ const [item,setItem]=useState({
                             placeholder="Enter Title" 
                             value={title}
                             onChange={handleTitle}
+                            required
                             />
 
                         </div>
@@ -80,6 +115,7 @@ const [item,setItem]=useState({
                             placeholder="Enter discount price"
                             value={discountPrice} 
                             onChange={handlediscountprice }
+                            required
                             />
                         </div>
                         <div className={"input-field"}>
@@ -89,6 +125,7 @@ const [item,setItem]=useState({
                             placeholder="Enter  price" 
                             value={price} 
                             onChange={handleprice}
+                            required
                             />
                         </div>
 
@@ -99,6 +136,7 @@ const [item,setItem]=useState({
                             placeholder="Enter thumbnail " 
                             value={thumbnail} 
                             onChange={handlethumbnail}
+                            
                             />
                         </div>
                         <div className="update">
